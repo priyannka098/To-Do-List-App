@@ -1,7 +1,4 @@
 import TodoWrapper from "./TodoWrapper/Wrapper";
-
-
-
 function App() {
   return (
     <>

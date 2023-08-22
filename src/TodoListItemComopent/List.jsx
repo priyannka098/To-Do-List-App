@@ -4,18 +4,24 @@ import React, { useContext,useState } from "react";
 
   const List = ()=>
   {
-    const {todoarray}=useContext(TextContext);
+    const {todoarray,setTodoarray}=useContext(TextContext);
+    const[secondData,setSecondData]=useState([]);
+
+
+
     return (
          <>
           <h1 className="text-[25px] not-italic font-semibold p-4">TodoList</h1>
          <div className =" w-[80%] h-[70%]  flex flex-col  items-center overflow-y-auto">
         
-         {todoarray.map((text,index)=> 
-         <Item key={index} data={text} index1={index} />  )}
-              
-         </div>
         
+         {todoarray.map((text,index)=>
+         <Item key={index} data={text} index1={index}  />  
+         )}
+        </div>
          </>
+
+  
     )
   }
   

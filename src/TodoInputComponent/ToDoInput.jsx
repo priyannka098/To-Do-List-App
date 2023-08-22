@@ -12,15 +12,15 @@ import { TextContext } from "../Context";
 
  }
  const handleClick=()=>{
-    console.log("toDoInput");
-    document.getElementById("input").value="";
-    setToDoInput("");
 
-    if(toDoInput!==""){
+     if(toDoInput!==""){
         let arr=[...todoarray];
         arr.push(toDoInput);
-        setTodoarray(arr);
-    }
+       setTodoarray(arr);
+     }
+
+     document.getElementById("input").value="";
+    setToDoInput("");
 
  }
     return(
