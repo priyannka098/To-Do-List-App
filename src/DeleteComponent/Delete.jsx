@@ -4,6 +4,7 @@ import { TextContext } from "../Context";
  const Delete=() =>{
     const {todoarray,setTodoarray}=useContext(TextContext);
     const{checkedItems,setCheckedItems}=useContext(TextContext);
+    const[showDelete,setShowDelete]=useState(false);
 
 
     const deleteAllTask=()=>{
@@ -22,11 +23,11 @@ const deleteDoneTask=()=>{
 
     return(
         <>
-        <div className="flex justify-between flex-row justify-center items-center h-[30%] w-[80%] ">
-            <button onClick={deleteDoneTask}  className="text-white bg-red-500 border border-none rounded w-[40%] h-[35%]"> Delete done tasks</button>
-            <button onClick={deleteAllTask} className=" text-white bg-red-500 border border-none rounded w-[40%] h-[35%]"> Delete all tasks</button>
+       { todoarray.length>0 && <div className="flex justify-between flex-row justify-center items-center h-[30%] w-[80%] ">
+            <button onClick={deleteDoneTask}  className="text-white bg-red-500 border border-none rounded w-[40%] h-[35%]"> Delete Done Tasks</button>
+            <button onClick={deleteAllTask} className=" text-white bg-red-500 border border-none rounded w-[40%] h-[35%]"> Delete All Tasks</button>
 
-        </div>
+        </div>}
         </>
     );
 
