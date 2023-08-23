@@ -1,12 +1,14 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { TextContext } from "../Context";
 
  const Item=({index1,data}) =>{
-    const {todoarray,setTodoarray}=useContext(TextContext);
+    const {todoarray,setTodoarray, checkedItems, setCheckedItems}=useContext(TextContext);
     const[editing,setEditing]=useState(false);
     const[text, setText] = useState(data);
+    const[checked, setChecked] = useState(false);
+    
 
-    const handleClick=()=>{
+    const handleDelete=()=>{
       console.log(index1);
        let copydata= [...todoarray];
        let newArray= copydata.filter((element, index)=> {return index!=index1});
@@ -23,11 +25,23 @@ import { TextContext } from "../Context";
         let newarr=[...todoarray]; //make copy of todoarray
         newarr[index1]=text;
         setTodoarray(newarr);
-
     }
     const handleDuplicateInput=(e)=>{
       let newText = e.target.value;
       setText(newText);
+    }
+    const handleCheckBox=(e)=>{
+        let curValue = e.target.checked; //for checkbox we write  e.target.checked
+        setChecked(curValue);
+        if(curValue === true) {
+            let newcheck=[...checkedItems];
+            newcheck.push(text);
+            setCheckedItems(newcheck);
+        } else {
+            let checkedCopy =[...checkedItems];
+            checkedCopy = checkedCopy.filter(item => item!==text);
+            setCheckedItems(checkedCopy);
+        }
     }
     return(
         <>
@@ -39,12 +53,13 @@ import { TextContext } from "../Context";
                 
             <div className=" flex justify-end w-[10%]">
 
-                <input  className="m-1 p-2" type="checkbox"  name ="checkbox1" value="checkbox"/>
+                <input onChange={handleCheckBox} className="m-1 p-2" type="checkbox"  name ="checkbox1" 
+                value ={checked}/>
                 <label for="checkbox1"></label>
 
                 <button  onClick={handleEditing} className=" bg-blue-600 m-1 p-1 text-white rounded border-rose-600 hover:bg-gray-600">Edit</button>
 
-                <button onClick={handleClick} className="bg-red-600 m-1 p-1 text-white rounded hover:bg-green-600">Delete</button>
+                <button onClick={handleDelete} className="bg-red-600 m-1 p-1 text-white rounded hover:bg-green-600">Delete</button>
                
             </div>
             </div>}
@@ -59,13 +74,8 @@ import { TextContext } from "../Context";
             <button onClick={handleUpdate} className=" bg-yellow-600 m-1 p-1 text-white rounded hover:bg-orange-600">Update</button>
             </div>
            </div>} 
+
            
-            
-
-
-
-
-
             
 
         </>

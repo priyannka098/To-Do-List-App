@@ -5,10 +5,7 @@ import React, { useContext,useState } from "react";
   const List = ()=>
   {
     const {todoarray,setTodoarray}=useContext(TextContext);
-    const[secondData,setSecondData]=useState([]);
-
-
-
+  
     return (
          <>
           <h1 className="text-[25px] not-italic font-semibold p-4">TodoList</h1>

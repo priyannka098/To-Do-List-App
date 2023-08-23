@@ -6,10 +6,11 @@ import {TextContext} from "../Context";
 
  const Wrapper=() =>{
      const[todoarray,setTodoarray]=useState([]);
+     const[checkedItems,setCheckedItems]=useState([]);
     return(
         <>
         <div className="h-screen w-screen flex flex-col justify-center items-center">
-        <TextContext.Provider value={{todoarray,setTodoarray}}>
+        <TextContext.Provider value={{todoarray,setTodoarray,checkedItems,setCheckedItems}}>
             <TodoInput />
             < List/>
             <Delete /> 

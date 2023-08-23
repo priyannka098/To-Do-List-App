@@ -1,15 +1,22 @@
-import React,{useContext} from "react";
+import React,{useContext, useState} from "react";
 import { TextContext } from "../Context";
 
  const Delete=() =>{
     const {todoarray,setTodoarray}=useContext(TextContext);
+    const{checkedItems,setCheckedItems}=useContext(TextContext);
+
 
     const deleteAllTask=()=>{
         setTodoarray([]);
     }
 
-const deleteDoneTask=()=>
-{
+const deleteDoneTask=()=>{
+    let arr=[...todoarray]; 
+ checkedItems.forEach(element=>{
+  arr = arr.filter((item)=>{ return item!=element});
+ })
+ setTodoarray(arr);
+
 
 }
 

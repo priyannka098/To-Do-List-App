@@ -14,7 +14,7 @@ import { TextContext } from "../Context";
  const handleClick=()=>{
 
      if(toDoInput!==""){
-        let arr=[...todoarray];
+        let arr=[...todoarray];  // this way we put the data in array
         arr.push(toDoInput);
        setTodoarray(arr);
      }
@@ -29,7 +29,7 @@ import { TextContext } from "../Context";
 
         <div className="  flex flex-col justify-center items-center h-[30%] w-[80%] border border-solid border-[2px] border-inherit p-8">
    
-                <input onChange={handleChange} id="input" type="text" placeholder="New Todo"className=" h-[20%] w-[100%]  p-4 border border-solid border-2 "  />
+                <input onChange={handleChange} id="input" type="text" placeholder="New Todo" className=" h-[20%] w-[100%]  p-4 border border-solid border-2 "  />
 
                 <button onClick={handleClick}className="h-[30%] w-[100%]  mt-8 p-2 bg-teal-600 text-white rounded hover:bg-teal-500" > Add new Task</button>
 
