@@ -46,7 +46,7 @@ import { TextContext } from "../Context";
     return(
         <>
 
-           {!editing && <div className="flex justify-between  items-center w-full rounded mb-4 border-2 border-white p-2">
+           {!editing && <div className="flex justify-between  items-center w-full rounded mb-4 border border-grey border-2 p-2">
 
                 <div className="w-[75%] ">
                 <span className="break-normal">{data}</span>
@@ -60,7 +60,7 @@ import { TextContext } from "../Context";
 
                 <button  onClick={handleEditing} className=" bg-teal-500 m-1 p-1 w-24 text-sm text-white rounded border-rose-600 hover:bg-gray-600">Edit</button>
 
-                <button onClick={handleDelete} className="bg-red-600 m-1 p-1 w-24 text-sm text-white rounded hover:bg-red-800">Delete</button>
+                <button onClick={handleDelete} className="bg-[#008000] m-1 p-1 w-24 text-sm text-white rounded hover:bg-red-800">Delete</button>
                
             </div>
             </div>}
